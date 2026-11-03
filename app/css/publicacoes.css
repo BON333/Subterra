@@ -1,0 +1,227 @@
+
+/* ======================================
+   SUBTERRA - ETAPA 4
+   COMENTARIOS E VOTOS
+====================================== */
+
+/* VOTOS */
+
+.vote-box {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+    padding: 18px 0;
+    border-top: 1px solid var(--borda);
+}
+
+.vote-button {
+    padding: 9px 13px;
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+    background: var(--superficie-2);
+    color: var(--secundario);
+    font-size: 12px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.vote-button:hover {
+    color: var(--texto);
+    border-color: var(--verde);
+}
+
+.vote-button.is-active {
+    color: var(--verde);
+    background: #1d3029;
+    border-color: var(--verde);
+}
+
+.vote-button:disabled {
+    cursor: wait;
+    opacity: 0.55;
+}
+
+.vote-score {
+    min-width: 32px;
+    text-align: center;
+    color: var(--texto);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 18px;
+}
+
+.vote-total {
+    color: var(--secundario);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+}
+
+.vote-feedback {
+    color: var(--verde);
+    font-size: 11px;
+}
+
+/* COMENTARIOS */
+
+.comments-section {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid var(--borda);
+}
+
+.comments-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.comments-heading h4 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.comments-heading span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 26px;
+    height: 26px;
+    padding: 0 6px;
+    margin-left: 7px;
+    border-radius: 5px;
+    background: var(--superficie-2);
+    color: var(--verde);
+    font-size: 12px;
+}
+
+.comments-empty {
+    color: var(--secundario);
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.comment {
+    padding: 17px;
+    background: var(--fundo);
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+}
+
+.comment-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.comment-meta strong {
+    color: var(--verde);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.comment-meta time {
+    color: var(--secundario);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+}
+
+.comment-text {
+    color: var(--texto);
+    font-size: 13px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.comment-actions {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    margin-top: 15px;
+}
+
+.comment-actions a,
+.comment-actions button {
+    padding: 0;
+    background: none;
+    border: 0;
+    color: var(--secundario);
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.comment-actions a:hover {
+    color: var(--verde);
+}
+
+.comment-actions button:hover {
+    color: #e79a9a;
+}
+
+/* FORMULARIO DE COMENTARIO */
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--borda);
+}
+
+.comment-form label {
+    color: var(--secundario);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.comment-form textarea {
+    width: 100%;
+    min-height: 90px;
+    resize: vertical;
+    line-height: 1.6;
+    font-size: 13px;
+}
+
+.comment-form button {
+    align-self: flex-end;
+}
+
+.post {
+    scroll-margin-top: 25px;
+}
+
+@media (max-width: 650px) {
+
+    .vote-box {
+        gap: 9px;
+    }
+
+    .vote-button {
+        padding: 8px 10px;
+    }
+
+    .vote-feedback {
+        flex-basis: 100%;
+    }
+
+    .comment {
+        padding: 14px;
+    }
+
+    .comment-form button {
+        width: 100%;
+    }
+}
