@@ -1,0 +1,29 @@
+# Deploy Linux (slide 6): systemd + cgroups v2 + namespaces
+# Instalar: sudo cp subterra.service /etc/systemd/system/ && sudo systemctl daemon-reload
+#           sudo systemctl enable --now subterra
+[Unit]
+Description=Subterra backend (Spring Boot)
+After=network.target postgresql.service
+
+[Service]
+User=subterra
+ExecStart=/usr/bin/java -Xmx512m -jar /opt/subterra/subterra.jar
+Restart=on-failure
+
+# --- cgroups: limites de recursos do processo ---
+CPUQuota=150%
+MemoryMax=768M
+TasksMax=256
+IOWeight=100
+
+# --- namespaces / isolamento ---
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/lib/subterra
+NoNewPrivileges=yes
+RestrictNamespaces=yes
+
+[Install]
+WantedBy=multi-user.target
