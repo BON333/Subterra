@@ -38,6 +38,8 @@ try {
 
             COALESCE(v.pontuacao, 0) AS pontuacao,
             COALESCE(v.total_votos, 0) AS total_votos,
+            COALESCE(v.upvotes_profundidade, 0)
+                AS upvotes_profundidade,
 
             COALESCE(c.total_comentarios, 0)
                 AS total_comentarios,
@@ -50,7 +52,8 @@ try {
             SELECT
                 publicacao_id,
                 SUM(valor) AS pontuacao,
-                COUNT(*) AS total_votos
+                COUNT(*) AS total_votos,
+                SUM(GREATEST(valor, 0)) AS upvotes_profundidade
             FROM votos
             GROUP BY publicacao_id
         ) v ON v.publicacao_id = p.id
@@ -91,6 +94,24 @@ try {
     $stmt->execute();
 
     $publicacoes = $stmt->fetchAll();
+
+    foreach ($publicacoes as &$publicacao) {
+        $publicacao["densidade"] =
+            densidadeSemantica((string) $publicacao["conteudo"]);
+        $publicacao["feed_score"] = pontuacaoFeed($publicacao);
+    }
+    unset($publicacao);
+
+    usort(
+        $publicacoes,
+        static function (array $a, array $b): int {
+            $ordemPontuacao = $b["feed_score"] <=> $a["feed_score"];
+
+            return $ordemPontuacao !== 0
+                ? $ordemPontuacao
+                : ((int) $b["id"] <=> (int) $a["id"]);
+        }
+    );
 
     // =====================================
     // COMENTARIOS DAS PUBLICACOES
@@ -302,7 +323,7 @@ try {
 
         <div class="section-heading">
 
-            <h2>Publicacoes recentes</h2>
+            <h2>Feed de profundidade</h2>
 
             <span>
                 <?= count($publicacoes) ?>
