@@ -82,7 +82,17 @@ Abre <http://127.0.0.1:8055> e entra com `ADMIN_EMAIL` e `ADMIN_PASSWORD` do
 ficheiro `.env.cms`. O Directus usa o esquema existente; nao alteres nem apagues
 as tabelas tecnicas `directus_*` ou as tabelas centrais da aplicacao. O painel
 de moderacao PHP continua a gerir denuncias e o Directus fica para gestao de
-conteudo/media.
+conteudo/media. Regista as colecoes existentes no primeiro arranque e depois de
+reinicializar uma base de dados:
+
+```sh
+python3 scripts/register-directus-collections.py
+```
+
+O painel CMS mostra publicacoes, comentarios, chat e denuncias. As colecoes de
+utilizadores e votos ficam ocultas para evitar expor dados de autenticacao ou
+mostrar dados internos que nao sao conteudo editorial. O site publico continua
+em <http://127.0.0.1:8000>; Directus e apenas a area administrativa.
 
 Esta configuracao e para desenvolvimento local em Linux: o Directus fica
 acessivel apenas em `127.0.0.1`. Para producao, configura TLS e um proxy reverso
