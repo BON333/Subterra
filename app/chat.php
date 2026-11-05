@@ -51,7 +51,7 @@ $podeModerar = eModerador();
 
             <a
                 class="nav-link"
-                href="moderacao/index.php"
+                href="Moderacao/index.php"
             >
                 Moderacao
             </a>

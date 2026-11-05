@@ -47,7 +47,7 @@ if (
         "Operacao administrativa invalida."
     );
 
-    redireccionar("moderacao/index.php");
+    redireccionar("Moderacao/index.php");
 }
 
 try {
@@ -201,7 +201,4 @@ try {
     );
 }
 
-redireccionar("moderacao/index.php");
-
-
-redireccionar("moderacao/index.php");
+redireccionar("Moderacao/index.php");

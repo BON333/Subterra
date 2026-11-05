@@ -99,10 +99,4 @@ header("Pragma: no-cache");
 // 7. REDIRECCIONAR PARA LOGIN
 // ========================================
 
-header(
-    "Location: /Subterra/auth/login.php",
-    true,
-    303
-);
-
-exit;
+redireccionar("auth/login.php");

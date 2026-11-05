@@ -199,7 +199,7 @@ try {
 
             <a
                 class="nav-link"
-                href="moderacao/index.php"
+                href="Moderacao/index.php"
             >
                 Moderacao
             </a>
@@ -525,7 +525,7 @@ try {
 
                                 <form
                                     method="POST"
-                                    action="denuncias/criar.php"
+                                    action="Denuncias/criar.php"
                                     class="report-form"
                                 >
 
