@@ -1,15 +1,15 @@
 :root {
-    color-scheme: light;
-    --fundo: #eef2ff;
-    --superficie: #d6daf0;
-    --superficie-2: #e5e9f8;
-    --borda: #b7c5d9;
-    --texto: #000;
-    --secundario: #555;
-    --verde: #789922;
-    --azul: #34345c;
-    --vermelho: #af0a0f;
-    --link: #34345c;
+    color-scheme: dark;
+    --fundo: #111315;
+    --superficie: #1b1e22;
+    --superficie-2: #25292e;
+    --borda: #3b4148;
+    --texto: #dedfe1;
+    --secundario: #a0a5aa;
+    --verde: #a3b86e;
+    --azul: #a7bfdc;
+    --vermelho: #ad555b;
+    --link: #a7bfdc;
 }
 
 * {
@@ -26,7 +26,7 @@ body {
     margin: 0;
     background: var(--fundo);
     color: var(--texto);
-    font: 14px/1.5 Arial, Helvetica, sans-serif;
+    font: 14px/1.55 "IBM Plex Mono", "Cascadia Code", "Courier New", monospace;
 }
 
 a {
@@ -66,7 +66,7 @@ summary:focus-visible {
     justify-content: space-between;
     gap: 20px;
     padding: 10px max(20px, calc((100% - 1120px) / 2));
-    background: #fff;
+    background: #181a1d;
     border-bottom: 2px solid var(--vermelho);
 }
 
@@ -218,7 +218,7 @@ h1 {
     flex: 0 0 auto;
     display: inline-block;
     background: var(--verde);
-    border: 1px solid #536e17;
+    border: 1px solid #59683d;
     border-radius: 50%;
 }
 
@@ -236,8 +236,8 @@ h1 {
 }
 
 a.modulo:hover {
-    background: #dce2f4;
-    border-color: #8899b2;
+    background: #2b3036;
+    border-color: #58616c;
 }
 
 .modulo h3 {
@@ -262,9 +262,9 @@ a.modulo:hover {
     align-items: center;
     justify-content: center;
     padding: 7px 13px;
-    border: 1px solid #888;
+    border: 1px solid #555b62;
     border-radius: 0;
-    background: #f7f7f7;
+    background: #24272b;
     color: var(--texto);
     font-size: 13px;
     font-weight: 700;
@@ -273,25 +273,25 @@ a.modulo:hover {
 }
 
 .btn:hover {
-    background: #fff;
+    background: #2b2e33;
     color: var(--vermelho);
 }
 
 .btn-primary {
-    border-color: #80080c;
-    background: var(--vermelho);
+    border-color: #7e3439;
+    background: #843e43;
     color: #fff;
 }
 
 .btn-primary:hover {
-    border-color: #70070b;
-    background: #c00;
+    border-color: #9c454a;
+    background: #a64b51;
     color: #fff;
 }
 
 .btn-outline {
     border-color: var(--borda);
-    background: #fff;
+    background: #202327;
     color: var(--azul);
 }
 
@@ -319,14 +319,14 @@ a.modulo:hover {
     width: 100%;
     min-height: 38px;
     padding: 9px 10px;
-    border: 1px solid #aaa;
+    border: 1px solid #555b62;
     border-radius: 0;
-    background: #fff;
+    background: #151719;
     color: var(--texto);
 }
 
 .input::placeholder {
-    color: #777;
+    color: #92979d;
 }
 
 textarea.input {
@@ -367,7 +367,7 @@ textarea.input {
     transform: translateY(-50%);
     border: 1px solid var(--borda);
     border-radius: 0;
-    background: var(--fundo);
+    background: #202327;
     color: var(--azul);
 }
 
@@ -375,17 +375,17 @@ textarea.input {
     padding: 11px 14px;
     margin: 15px 0;
     border: 1px solid var(--borda);
-    background: #fff;
+    background: #1b1e22;
 }
 
 .alert-success {
-    border-color: #a7bd78;
-    color: #4b6811;
+    border-color: #59683d;
+    color: #becd9d;
 }
 
 .alert-error {
-    border-color: #d4a0a0;
-    color: #9c2020;
+    border-color: #70464a;
+    color: #e0a4a8;
 }
 
 .rodape {
@@ -394,7 +394,7 @@ textarea.input {
     gap: 14px;
     padding: 18px max(20px, calc((100% - 1120px) / 2));
     border-top: 1px solid var(--borda);
-    background: #fff;
+    background: #181a1d;
     color: var(--secundario);
     font: 11px "Courier New", monospace;
 }
@@ -423,7 +423,7 @@ textarea.input {
     padding: 7px 10px;
     margin-top: 15px;
     border: 1px solid var(--borda);
-    background: var(--fundo);
+    background: #151719;
     font-size: 12px;
 }
 

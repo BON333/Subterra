@@ -2,6 +2,7 @@
 <?php
 
 require_once __DIR__ . "/includes/moderacao.php";
+require_once __DIR__ . "/includes/algoritmos.php";
 
 exigirLogin();
 
@@ -38,6 +39,7 @@ try {
 
             COALESCE(v.pontuacao, 0) AS pontuacao,
             COALESCE(v.total_votos, 0) AS total_votos,
+            COALESCE(v.upvotes_profundidade, 0) AS upvotes_profundidade,
 
             COALESCE(c.total_comentarios, 0)
                 AS total_comentarios,
@@ -50,7 +52,9 @@ try {
             SELECT
                 publicacao_id,
                 SUM(valor) AS pontuacao,
-                COUNT(*) AS total_votos
+                COUNT(*) AS total_votos,
+                SUM(CASE WHEN valor = 1 THEN 1 ELSE 0 END)
+                    AS upvotes_profundidade
             FROM votos
             GROUP BY publicacao_id
         ) v ON v.publicacao_id = p.id
@@ -91,6 +95,7 @@ try {
     $stmt->execute();
 
     $publicacoes = $stmt->fetchAll();
+    $publicacoes = ordenarFeedComAlgoritmos($publicacoes);
 
     // =====================================
     // COMENTARIOS DAS PUBLICACOES
@@ -140,7 +145,7 @@ try {
         }
     }
 
-} catch (PDOException $ex) {
+} catch (Throwable $ex) {
 
     error_log(
         "[SUBTERRA FEED ETAPA 5] " .
@@ -381,6 +386,21 @@ try {
                                     $categorias[
                                         $post["categoria"]
                                     ] ?? $post["categoria"]
+                                ) ?>
+                            </span>
+
+                            <span class="depth-tag <?= $post["e_subterranea"]
+                                ? "is-subterranean"
+                                : "" ?>">
+                                <?= $post["e_subterranea"]
+                                    ? "SUBTERRANEO"
+                                    : "SUPERFICIE" ?>
+                                ·
+                                <?= number_format(
+                                    $post["densidade_semantica"],
+                                    2,
+                                    ",",
+                                    ""
                                 ) ?>
                             </span>
 

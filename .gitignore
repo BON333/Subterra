@@ -5,6 +5,8 @@
 **/node_modules/
 **/vendor/
 **/uploads/
+algoritmos-java/build/
+*.class
 
 database/backups/
 *.log

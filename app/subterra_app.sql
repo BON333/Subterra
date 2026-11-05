@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS votos (
 
     usuario_id BIGINT UNSIGNED NOT NULL,
 
-    valor TINYINT NOT NULL,
+    valor TINYINT NOT NULL DEFAULT 1,
 
     UNIQUE KEY voto_unico (
         publicacao_id,

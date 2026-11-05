@@ -60,7 +60,7 @@
     gap: 8px;
     padding: 16px;
     overflow-y: auto;
-    scrollbar-color: #9aa8bd var(--superficie);
+    scrollbar-color: #555e68 var(--superficie);
 }
 
 .chat-placeholder {
@@ -137,9 +137,9 @@
     width: fit-content;
     padding: 6px 9px;
     margin-top: 14px;
-    background: #e6edcf;
-    border: 1px solid #a7bd78;
-    color: #536e17;
+    background: #292e24;
+    border: 1px solid #59683d;
+    color: #c0cf9d;
     font: 700 11px "Courier New", monospace;
 }
 

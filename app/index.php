@@ -119,7 +119,7 @@ require_once __DIR__ . "/includes/bootstrap.php";
 
         <div class="painel-cabecalho">
 
-            <span>SUBTERRA / SISTEMA</span>
+            <span>&gt; SUBTERRA / SESSAO ANONIMA</span>
 
             <span>/b/</span>
 
@@ -167,7 +167,7 @@ require_once __DIR__ . "/includes/bootstrap.php";
 
             </a>
 
-            <a class="modulo" href="chat.php">
+            <a class="modulo" href="feed.php">
 
                 <h3>02 / Conversas</h3>
 

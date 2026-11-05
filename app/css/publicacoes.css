@@ -5,6 +5,17 @@
     margin-top: 15px;
 }
 
+.depth-tag {
+    padding: 2px 6px;
+    border: 1px solid var(--borda);
+    color: var(--secundario);
+}
+
+.depth-tag.is-subterranean {
+    border-color: #59683d;
+    color: var(--verde);
+}
+
 .post {
     padding: 18px;
     scroll-margin-top: 18px;
@@ -73,11 +84,11 @@
 .vote-button:hover,
 .vote-button.is-active {
     border-color: var(--verde);
-    color: #536e17;
+    color: #c0cf9d;
 }
 
 .vote-button.is-active {
-    background: #e6edcf;
+    background: #292e24;
 }
 
 .vote-button:disabled {
