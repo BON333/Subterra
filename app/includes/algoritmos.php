@@ -2,7 +2,9 @@
 
 require_once __DIR__ . "/bootstrap.php";
 
-class SubterraAlgorithmException extends RuntimeException {}
+class SubterraAlgorithmException extends RuntimeException
+{
+}
 
 function pedirAlgoritmo(string $rota, array $dados): array
 {
@@ -147,7 +149,7 @@ function permitirMensagemComAlgoritmos(int $usuarioId): bool
     );
 
     if (!is_bool($resposta["allowed"] ?? null)) {
-        throw new RuntimeException(
+        throw new SubterraAlgorithmException(
             "O servico de algoritmos devolveu uma resposta invalida."
         );
     }

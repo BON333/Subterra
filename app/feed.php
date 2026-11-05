@@ -307,7 +307,7 @@ try {
 
         <div class="section-heading">
 
-            <h2>Publicacoes recentes</h2>
+            <h2>Feed de profundidade</h2>
 
             <span>
                 <?= count($publicacoes) ?>
