@@ -52,6 +52,43 @@ JDK 17 ou superior.
 Para verificar a ligacao, abre `/api/teste_conexao.php`. Erros detalhados
 ficam no registo do servidor, nao na resposta publica.
 
+## CMS (Directus)
+
+O projecto inclui o Directus como CMS headless para gerir conteudo e ficheiros
+da mesma base de dados. No Linux, cria uma conta MySQL dedicada para o CMS
+(substitui a palavra-passe):
+
+```sql
+CREATE USER 'subterra_cms'@'%' IDENTIFIED BY 'uma-senha-unica';
+GRANT ALL PRIVILEGES ON subterra_app.* TO 'subterra_cms'@'%';
+```
+
+O acesso SQL da conta fica limitado a `subterra_app`. Para executar o CMS:
+
+```sh
+cp .env.cms.example .env.cms
+openssl rand -hex 32  # gera valores para KEY e SECRET
+```
+
+Edita `.env.cms` com dois valores aleatorios diferentes para `KEY` e `SECRET`,
+uma senha exclusiva em `ADMIN_PASSWORD` e a senha da conta `subterra_cms` em
+`DB_PASSWORD`. Depois inicia o Directus:
+
+```sh
+docker compose -f compose.cms.yml up -d
+```
+
+Abre <http://127.0.0.1:8055> e entra com `ADMIN_EMAIL` e `ADMIN_PASSWORD` do
+ficheiro `.env.cms`. O Directus usa o esquema existente; nao alteres nem apagues
+as tabelas tecnicas `directus_*` ou as tabelas centrais da aplicacao. O painel
+de moderacao PHP continua a gerir denuncias e o Directus fica para gestao de
+conteudo/media.
+
+Esta configuracao e para desenvolvimento local em Linux: o Directus fica
+acessivel apenas em `127.0.0.1`. Para producao, configura TLS e um proxy reverso
+com acesso restrito; nunca publiques as credenciais do CMS nem exponhas a porta
+da base de dados.
+
 ## Funcionalidades
 
 - Registo, login, sessao privada e logout com proteccao CSRF.
@@ -62,6 +99,7 @@ ficam no registo do servidor, nao na resposta publica.
   controlo de frequência de mensagens.
 - Painel de moderacao para analisar denuncias, ocultar/restaurar publicacoes
   e remover mensagens.
+- CMS Directus ligado a MySQL para administracao de conteudo/media.
 - Interface adaptavel a telemoveis, com uma apresentacao de imageboard simples
   com estrutura de imageboard, paleta de terminal escura, tipografia
   monoespaçada e acentos discretos.
